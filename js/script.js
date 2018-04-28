@@ -19,7 +19,10 @@
 //****************** SERIOUSLY TEST USING console.log()!!! ******************
 
 //GLOBAL VARIABLES
-
+var userChoice = "";
+var computerChoice = "";
+var winner = "";
+var choices = ["rock","paper","scissors"];
 
 
 //FUNCTIONS
@@ -27,4 +30,43 @@
 
 
 // DOCUMENT READY FUNCTION
+$( document ).ready(function() {
+
+        $("#shoot").click(function(){
+             
+                userChoice = $("input").val();
+                console.log(userChoice);
+                $("#userChoice").append(userChoice);
+                
+                var randomIndex = Math.floor(Math.random() * choices.length);
+                computerChoice = choices[randomIndex];
+                   
+                $("#computerChoice").append(computerChoice);
+                        
+                       
+        
+                        if((userChoice==="rock") && (computerChoice ==="rock")) {
+                       $('body').append("Tie");
+                        } else if ((userChoice==="rock") && (computerChoice==="paper")) {
+                       $('#winner').append("Computer Wins");
+                         } else if  ((userChoice==="rock") && (computerChoice==="scissors")) {
+                       $('#winner').append("You Win");
+                         }else if ((userChoice==="paper") && (computerChoice==="rock")) {
+                       $('#winner').append("You Win");
+                         }else if  ((userChoice==="paper") && (computerChoice==="paper")) {
+                       $('#winner').append("Tie");
+                         }else if ((userChoice==="paper") && (computerChoice==="scissors")) {
+                       $('#winner').append("Computer Wins");
+                         }else if ((userChoice==="scissors") && (computerChoice==="rock")) {
+                       $('#winner').append("Computer Wins");
+                         }else if ((userChoice==="scissors") && (computerChoice==="paper")) {
+                       $('#winner').append("You Win");
+                         }else if ((userChoice==="scissors") && (computerChoice==="scissors")) {
+                       $('#winner').append("Tie");
+                        }else{
+                        $('#Winner').append("Invalid");
+                        }
+        
+        });
+});
 
